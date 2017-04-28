@@ -1,0 +1,11 @@
+{
+  "name": "gamesv2",
+  "version": "1.0.0",
+  "description": "A web app to track your board game collection and plays",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ross Brazuk",
+  "license": "ISC"
+}
