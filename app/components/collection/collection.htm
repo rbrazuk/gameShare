@@ -1,0 +1,15 @@
+<div class="row" ng-init="getExampleCollection()">
+  <div class="col-md-12">
+    <h3>Collection for {{username}}</h3>
+  </div>
+
+
+  <div class="col-md-12">
+    <ul>
+      <li ng-repeat="game in collection">
+        <a ng-href="https://boardgamegeek.com/boardgame/{{game.gameId}}/">{{game.name}}</a>
+      </li>
+    </ul>
+  </div>
+
+</div>
