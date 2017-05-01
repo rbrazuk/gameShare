@@ -3,10 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>GameShare</title>
+
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/collection.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
   </head>
   <body>
+    <div class="container-fluid header">
+      <div class="row">
+        <div class="col-md-6">
+          <a href="#/">gameShare</a>
+        </div>
 
+        <div id="navigation" class="col-md-6 text-right">
+          <ul>
+            <li><a href="/">home</a></li>
+            <li><a href="#themes">themes</a></li>
+            <li><a href="#about">about</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <div class="container-fluid" ng-view>
 
     </div>
@@ -25,6 +42,7 @@
     <!-- Services -->
 
     <!-- Directives -->
+    <script src="app/shared/game/gameDirective.js" charset="utf-8"></script>
 
     <!-- Other -->
     <script src="assets/js/exampleCollection.json">

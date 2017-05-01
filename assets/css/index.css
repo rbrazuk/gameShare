@@ -1,0 +1,13 @@
+.header {
+  color: #FFF;
+  background-color: #000;
+  height: 40px;
+}
+
+#navigation ul {
+  list-style-type: none;
+}
+
+#navigation ul li {
+  display: inline-block;
+}

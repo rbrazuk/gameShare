@@ -3,13 +3,40 @@
     <h3>Collection for {{username}}</h3>
   </div>
 
+</div>
 
+<div class="row game-container" ng-repeat="game in collection">
   <div class="col-md-12">
-    <ul>
-      <li ng-repeat="game in collection">
-        <a ng-href="https://boardgamegeek.com/boardgame/{{game.gameId}}/">{{game.name}}</a>
-      </li>
-    </ul>
-  </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10">
+          <span ng-if="game.expanded" ng-click="game.expanded = false" class="glyphicon glyphicon-collapse-down"></span>
+          <span ng-if="!game.expanded" ng-click="game.expanded = true" class="glyphicon glyphicon-expand"></span>
+          <a href="#"> {{game.name}}</a>
+        </div>
+        <div class="col-sm-2">
+          {{game.yearPublished}}
+        </div>
+      </div>
 
+      <div ng-if="game.expanded" class="row">
+        <div class="col-md-2">
+          <!-- spacing -->
+        </div>
+
+        <div class="col-md-5">
+          <ul>
+            <li>
+              <span class="glyphicon glyphicon-user"></span>
+              {{game.minPlayers}} - {{game.maxPlayers}} players
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-5">
+          <li><span class="glyphicon glyphicon-time"></span> {{game.playingTime}} min</li>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
