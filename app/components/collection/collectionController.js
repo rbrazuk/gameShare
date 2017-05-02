@@ -1,11 +1,13 @@
-angular.module("gameShareApp").controller("collectionController", function($scope, $http, $routeParams) {
+angular.module("gameShareApp").controller("collectionController", function($scope, $routeParams, $http, apiService) {
   $scope.username = $routeParams.username;
   $scope.collection = [];
 
   $scope.filter = {};
   $scope.selectedFilter = "all";
 
-
+  $scope.getXml = function() {
+    apiService.getXmlTest();
+  };
 
   $scope.changeFilter = function(newValue, oldValue, scope) {
     switch (newValue) {
