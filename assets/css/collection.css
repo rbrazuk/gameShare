@@ -2,3 +2,19 @@
   font-size: 18px;
   margin-bottom: 10px;
 }
+
+ul {
+  list-style-type: none;
+}
+
+.show-hide {
+  transition: all linear 0.25s;
+}
+
+.show-hide.ng-hide {
+
+  opacity: 0;
+  height: auto;
+
+
+}

@@ -2,40 +2,49 @@
   <div class="col-md-12">
     <h3>Collection for {{username}}</h3>
   </div>
-
 </div>
 
-<div class="row game-container" ng-repeat="game in collection">
+<div class="row">
+  <div class="col-md-12">
+    <form action="">
+      <input type="radio" name="filter" value="all" ng-model="selectedFilter"> All
+      <input type="radio" name="filter" value="wantToBuy" ng-model="selectedFilter"> Want To Buy
+      <input type="radio" name="filter" value="wantToPlay" ng-model="selectedFilter"> Want To Play
+      <hr>
+    </form>
+  </div>
+</div>
+
+<div class="row game-container" ng-repeat="game in collection | filter: filter">
   <div class="col-md-12">
     <div class="container">
       <div class="row">
         <div class="col-md-10">
           <span ng-if="game.expanded" ng-click="game.expanded = false" class="glyphicon glyphicon-collapse-down"></span>
           <span ng-if="!game.expanded" ng-click="game.expanded = true" class="glyphicon glyphicon-expand"></span>
-          <a href="#"> {{game.name}}</a>
+          <a ng-href="https://boardgamegeek.com/boardgame/{{game.gameId}}/"> {{game.name}}</a>
         </div>
         <div class="col-sm-2">
           {{game.yearPublished}}
         </div>
       </div>
 
-      <div ng-if="game.expanded" class="row">
+      <div ng-show="game.expanded" class="row show-hide">
         <div class="col-md-2">
           <!-- spacing -->
         </div>
 
-        <div class="col-md-5">
+        <div class="col-md-10">
           <ul>
             <li>
               <span class="glyphicon glyphicon-user"></span>
-              {{game.minPlayers}} - {{game.maxPlayers}} players
+              {{playersDisplay(game.minPlayers, game.maxPlayers)}}
             </li>
+            <li><span class="glyphicon glyphicon-time"></span> {{game.playingTime}} min</li>
           </ul>
         </div>
 
-        <div class="col-md-5">
-          <li><span class="glyphicon glyphicon-time"></span> {{game.playingTime}} min</li>
-        </div>
+
       </div>
     </div>
   </div>
