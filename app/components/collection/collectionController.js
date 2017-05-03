@@ -2,12 +2,27 @@ angular.module("gameShareApp").controller("collectionController", function($scop
   $scope.username = $routeParams.username;
   $scope.collection = [];
 
+  $scope.collectionLoaded = false;
+
   $scope.filter = {};
   $scope.selectedFilter = "all";
 
-  $scope.getXml = function() {
-    apiService.getXmlTest();
-  };
+  $scope.getCollection = function(username) {
+    apiService.getFlatCollection(username)
+      .then(function(posts) {
+        $scope.collectionLoaded = true;
+        $scope.collection = posts;
+        console.log("getCollection called");
+
+      });
+  }
+
+  $scope.init = function() {
+    $scope.username = $routeParams.username;
+    $scope.getCollection($scope.username);
+  }
+
+  $scope.init();
 
   $scope.changeFilter = function(newValue, oldValue, scope) {
     switch (newValue) {
@@ -30,14 +45,6 @@ angular.module("gameShareApp").controller("collectionController", function($scop
 
   $scope.$watch('selectedFilter', $scope.changeFilter);
 
-  $scope.getExampleCollection = function() {
-    $http.get("assets/js/exampleCollection.json")
-      .then(function(response) {
-        $scope.collection = response.data;
-        console.log($scope.collection);
-      });
-  };
-
   $scope.playersDisplay = function(minPlayers, maxPlayers) {
     if (maxPlayers == 1) {
       return "1 Player";
@@ -48,7 +55,4 @@ angular.module("gameShareApp").controller("collectionController", function($scop
     }
   };
 
-
-
-  //getExampleCollection();
 });

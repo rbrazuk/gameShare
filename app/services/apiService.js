@@ -1,20 +1,31 @@
-angular.module("gameShareApp").service("apiService", function($http) {
-  this.getXmlTest = function() {
-    // temporary function to test getting xml from api
-    $http.get("https://bgg-json.azurewebsites.net/collection/recreationMyth")
-    .success(function(response) {
-      console.log(response);
-    })
-    .error(function(response, status) {
-      console.log(reponse);
-    });
-  }
+angular.module("gameShareApp").service("apiService", function($http, $q) {
 
-  this.getCollectionForUser = function(userName) {
-    // get collection from api using username
-  }
+  const JSON_COLLECTION_ENDPOINT = "https://bgg-json.azurewebsites.net/collection/";
 
-  this.getGameById = function(gameId) {
-    // get game from api by gameId
-  }
+  var collection = undefined;
+  var currentUsername = undefined;
+
+
+  this.getFlatCollection = function(username) {
+
+    if (!collection && username != currentUsername) {
+      var deferred = $q.defer();
+
+      $http.get(JSON_COLLECTION_ENDPOINT + username)
+        .then(function(result) {
+          collection = result.data;
+          deferred.resolve(collection);
+          console.log("loaded from API");
+          currentUsername = username;
+        }, function(error) {
+          collection = error;
+          deferred.reject(error);
+        });
+
+      collection = deferred.promise;
+    }
+    console.log("loaded from cache");
+    return $q.when(collection);
+  };
+
 });
