@@ -3,8 +3,6 @@ angular.module("gameShareApp").service("apiService", function($http, $q) {
   const JSON_COLLECTION_ENDPOINT = "https://bgg-json.azurewebsites.net/collection/";
 
   var collection = undefined;
-  var currentUsername = undefined;
-
 
   this.getFlatCollection = function(username) {
 
