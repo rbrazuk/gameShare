@@ -1,7 +1,12 @@
+html {
+  font-family: sans-serif;
+}
+
 .header {
-  color: #FFF;
-  background-color: #000;
+  color: #000;
+  background-color: #FF5733;
   height: 40px;
+  font-size: 24px;
 }
 
 #navigation ul {

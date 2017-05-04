@@ -8,22 +8,20 @@ angular.module("gameShareApp").service("apiService", function($http, $q) {
 
   this.getFlatCollection = function(username) {
 
-    if (!collection && username != currentUsername) {
-      var deferred = $q.defer();
+    var deferred = $q.defer();
 
-      $http.get(JSON_COLLECTION_ENDPOINT + username)
-        .then(function(result) {
-          collection = result.data;
-          deferred.resolve(collection);
-          console.log("loaded from API");
-          currentUsername = username;
-        }, function(error) {
-          collection = error;
-          deferred.reject(error);
-        });
+    $http.get(JSON_COLLECTION_ENDPOINT + username)
+      .then(function(result) {
+        collection = result.data;
+        deferred.resolve(collection);
+        console.log("loaded from API");
+        currentUsername = username;
+      }, function(error) {
+        collection = error;
+        deferred.reject(error);
+      });
 
-      collection = deferred.promise;
-    }
+    collection = deferred.promise;
     console.log("loaded from cache");
     return $q.when(collection);
   };

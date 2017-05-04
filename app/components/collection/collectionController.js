@@ -29,6 +29,9 @@ angular.module("gameShareApp").controller("collectionController", function($scop
       case "all":
         $scope.filter = {};
         break;
+      case "owned":
+        $cope.filter = {};
+        $scope.filter.owned = true;
       case "wantToBuy":
         $scope.filter = {};
         $scope.filter.wantToBuy = true;
