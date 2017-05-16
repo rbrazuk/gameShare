@@ -27,30 +27,20 @@
   </div>
 </div>
 
+<button type="button" ng-click="showListView()">List</button>
+<button type="button" ng-click="showGridView()">Grid</button>
 
 
 
-<!--
-<div class="row">
-  <div class="col-md-12">
-    <form action="">
-      <input type="radio" name="filter" value="all" ng-model="selectedFilter"> All
-      <input type="radio" name="filter" value="owned" ng-model="selectedFilter"> Owned
-      <input type="radio" name="filter" value="wantToBuy" ng-model="selectedFilter"> Want To Buy
-      <input type="radio" name="filter" value="wantToPlay" ng-model="selectedFilter"> Want To Play
-      <hr>
-    </form>
-  </div>
-</div>
 
--->
+
 
 <div ng-if="!collectionLoaded">
-  <h1>LOADING</h1>
+  <h1>LOADING!</h1>
 </div>
 
 <div id="collection-container" ng-if="collectionLoaded">
-  <table class="table table-hover">
+  <table class="table table-hover" ng-show="listMode">
     <thead>
       <tr>
         <th>Image</th>
@@ -61,11 +51,20 @@
         <th>Year</th>
       </tr>
       <tr ng-repeat="game in collection | filter: filter">
-        <th><a href="http://placehold.it"><img src="http://placehold.it/150x150"></a></th>
+        <td><img ng-src="{{game.thumbnail}}" height="150px"></td>
+        <td>{{game.name}}</td>
+        <td>{{game.minPlayers}}</td>
+        <td>{{game.maxPlayers}}</td>
+        <td>{{game.playingTime}} mins</td>
+        <td>{{game.yearPublished}}</td>
+
       </tr>
     </thead>
   </table>
-  <div class="row game-container" ng-repeat="game in collection | filter: filter">
+  <div ng-show="!listMode">
+    <div>
+      <img ng-repeat="game in collection | filter: filter" ng-src="{{game.thumbnail}}" height="150px">
+    </div>
 
   </div>
 

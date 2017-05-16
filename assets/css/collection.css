@@ -28,3 +28,7 @@ ul {
   display: inline-block;
   cursor: pointer;
 }
+
+.game-thumbnail {
+  padding: 5px;
+}

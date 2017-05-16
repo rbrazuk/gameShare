@@ -9,6 +9,16 @@ angular.module("gameShareApp").controller("collectionController", function($scop
 
   $scope.counts = {};
 
+  $scope.listMode = true;
+
+  $scope.showGridView = function() {
+    $scope.listMode = false;
+  }
+
+  $scope.showListView = function() {
+    $scope.listMode = true;
+  }
+
 
   $scope.getCollection = function(username) {
     apiService.getFlatCollection(username)
