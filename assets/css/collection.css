@@ -18,3 +18,13 @@ ul {
 
 
 }
+
+#collection-header {
+  height: 60px;
+  background-color: #ccc;
+}
+
+.filter-select {
+  display: inline-block;
+  cursor: pointer;
+}

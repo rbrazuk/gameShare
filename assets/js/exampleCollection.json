@@ -21,7 +21,7 @@
     "want": false,
     "wantToPlay": false,
     "wantToBuy": false,
-    "wishList": false,
+    "wishList": true,
     "userComment": ""
   },
   {

@@ -1,10 +1,36 @@
-<div class="row">
-  <div class="col-md-12">
+<div class="row" id="collection-header">
+  <div class="col-md-6">
     <h3>Collection for {{username}}</h3>
-    <h4>{{collection.length}} games in collection</h5>
+  </div>
+
+  <div class="col-md-6">
+    <ul class="inline-list">
+      <li>
+        <div class="filter-select">
+          owned
+          <p>{{collection.length}}</p>
+        </div>
+      </li>
+      <li>
+        <div class="filter-select">
+          wishlist
+          <p>XX</p>
+        </div>
+      </li>
+      <li>
+        <div class="filter-select">
+          want to play
+          <p>XX</p>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
 
+
+
+
+<!--
 <div class="row">
   <div class="col-md-12">
     <form action="">
@@ -17,44 +43,30 @@
   </div>
 </div>
 
+-->
+
 <div ng-if="!collectionLoaded">
   <h1>LOADING</h1>
 </div>
 
 <div id="collection-container" ng-if="collectionLoaded">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Min Players</th>
+        <th>Max Players</th>
+        <th>Playing Time</th>
+        <th>Year</th>
+      </tr>
+      <tr ng-repeat="game in collection | filter: filter">
+        <th><a href="http://placehold.it"><img src="http://placehold.it/150x150"></a></th>
+      </tr>
+    </thead>
+  </table>
   <div class="row game-container" ng-repeat="game in collection | filter: filter">
-    <div class="col-md-12">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-10">
-            <span ng-if="game.expanded" ng-click="game.expanded = false" class="glyphicon glyphicon-collapse-down"></span>
-            <span ng-if="!game.expanded" ng-click="game.expanded = true" class="glyphicon glyphicon-expand"></span>
-            <a ng-href="https://boardgamegeek.com/boardgame/{{game.gameId}}/"> {{game.name}}</a>
-          </div>
-          <div class="col-sm-2">
-            {{game.yearPublished}}
-          </div>
-        </div>
 
-        <div ng-show="game.expanded" class="row show-hide">
-          <div class="col-md-2">
-            <!-- spacing -->
-          </div>
-
-          <div class="col-md-10">
-            <ul>
-              <li>
-                <span class="glyphicon glyphicon-user"></span>
-                {{playersDisplay(game.minPlayers, game.maxPlayers)}}
-              </li>
-              <li><span class="glyphicon glyphicon-time"></span> {{game.playingTime}} min</li>
-            </ul>
-          </div>
-
-
-        </div>
-      </div>
-    </div>
   </div>
 
 </div>

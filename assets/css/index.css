@@ -4,15 +4,23 @@ html {
 
 .header {
   color: #000;
-  background-color: #FF5733;
+  background-color: #FFF;
+  box-shadow: 3px 3px 3px #808080;
   height: 40px;
   font-size: 24px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 
-#navigation ul {
+.inline-list {
   list-style-type: none;
 }
 
-#navigation ul li {
+.inline-list li {
   display: inline-block;
+}
+
+#content {
+  padding-top: 40px;
 }
