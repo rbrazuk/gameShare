@@ -72,3 +72,8 @@ ul {
 table {
   font-size: 1.2em;
 }
+
+th a {
+  color: #000;
+  cursor: pointer;
+}

@@ -4,6 +4,7 @@ angular.module("gameShareApp").controller("collectionController", function($scop
   $scope.counts = {};
   $scope.collectionLoaded = false;
   $scope.filter = {};
+  $scope.orderBy = "name";
   $scope.selectedFilter = "owned";
   $scope.listMode = false;
 
@@ -53,6 +54,17 @@ angular.module("gameShareApp").controller("collectionController", function($scop
         break;
     }
   };
+
+  $scope.changeOrderBy = function(newValue) {
+    // if ($scope.orderBy === newValue) {
+    //   $scope.orderBy = "-" + newValue;
+    // } else {
+    //   $scope.orderBy = newValue;
+    // }
+
+    $scope.orderBy = $scope.orderBy === newValue ? "-" + newValue : newValue;
+
+  }
 
   $scope.$watch('selectedFilter', $scope.changeFilter);
 
