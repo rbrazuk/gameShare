@@ -56,14 +56,7 @@ angular.module("gameShareApp").controller("collectionController", function($scop
   };
 
   $scope.changeOrderBy = function(newValue) {
-    // if ($scope.orderBy === newValue) {
-    //   $scope.orderBy = "-" + newValue;
-    // } else {
-    //   $scope.orderBy = newValue;
-    // }
-
-    $scope.orderBy = $scope.orderBy === newValue ? "-" + newValue : newValue;
-
+      $scope.orderBy = $scope.orderBy === newValue ? "-" + newValue : newValue;
   }
 
   $scope.$watch('selectedFilter', $scope.changeFilter);
