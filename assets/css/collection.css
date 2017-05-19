@@ -27,7 +27,7 @@ ul {
 }
 
 #collection-header {
-  height: 60px;
+  height: 50px;
   background-color: #616161;
   color: #FFF;
 }
@@ -36,12 +36,6 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.filter-select {
-  display: inline-block;
-  cursor: pointer;
-  /*border: 1px solid black;*/
 }
 
 .game-thumbnail {
@@ -67,11 +61,11 @@ ul {
   margin-right: 5px;
 }
 
-.active {
+.display-active {
   color: #f2f2f2;
 }
 
-.inactive {
+.display-inactive {
   color: #000;
 }
 

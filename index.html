@@ -9,25 +9,30 @@
     <link rel="stylesheet" href="/assets/css/index.css">
     <link rel="stylesheet" href="/assets/css/gridThumbnail.css">
   </head>
-  <body>
-    <div class="container-fluid header">
-      <div class="row">
-        <div class="col-md-6">
-          <a href="#/">gameShare</a>
-        </div>
 
-        <div class="navigation col-md-6 right">
-          <ul class="inline-list">
-            <li><a href="/">home</a></li>
-            <li><a href="#themes">themes</a></li>
-            <li><a href="#about">about</a></li>
-          </ul>
-        </div>
+  <body>
+    <div class="header">
+      <div class="col-md-6">
+        <a href="#/">gameShare</a>
+      </div>
+      <div class="navigation col-md-6 right">
+        <ul class="inline-list">
+          <li><a href="/">home</a></li>
+          <li><a href="#themes">themes</a></li>
+          <li><a href="#about">about</a></li>
+        </ul>
       </div>
     </div>
-    <div class="container-fluid" id="content" ng-view>
+    <div class="container-fluid">
+
+
+      <div class="row" id="content" ng-view>
+
+      </div>
+
 
     </div>
+
 
     <!-- Angular -->
     <script src="node_modules/angular/angular.js"></script>
