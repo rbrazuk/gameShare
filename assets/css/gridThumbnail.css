@@ -1,0 +1,18 @@
+.grid-thumbnail {
+  display: inline-block;
+  box-shadow: 0 0 5px #888888;
+  margin: 5px;
+  box-sizing: border-box;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.grid-thumbnail img {
+  padding:2px;
+  height: 140px;
+}
+
+.grid-thumbnail:hover {
+  box-shadow: 0 0 10px #888888;
+  transform: scale3d(1.05,1.05,1.05);
+}

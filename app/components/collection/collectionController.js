@@ -5,11 +5,11 @@ angular.module("gameShareApp").controller("collectionController", function($scop
   $scope.collectionLoaded = false;
 
   $scope.filter = {};
-  $scope.selectedFilter = "all";
+  $scope.selectedFilter = "owned";
 
   $scope.counts = {};
 
-  $scope.listMode = true;
+  $scope.listMode = false;
 
   $scope.showGridView = function() {
     $scope.listMode = false;
@@ -70,7 +70,7 @@ angular.module("gameShareApp").controller("collectionController", function($scop
 
   $scope.init();
 
-  $scope.changeFilter = function(newValue, oldValue, scope) {
+  $scope.changeFilter = function(newValue) {
     switch (newValue) {
       case "all":
         $scope.filter = {};
@@ -79,9 +79,9 @@ angular.module("gameShareApp").controller("collectionController", function($scop
         $scope.filter = {};
         $scope.filter.owned = true;
         break;
-      case "wantToBuy":
+      case "wishList":
         $scope.filter = {};
-        $scope.filter.wantToBuy = true;
+        $scope.filter.wishList = true;
         break;
       case "wantToPlay":
         $scope.filter = {};
@@ -105,4 +105,9 @@ angular.module("gameShareApp").controller("collectionController", function($scop
     }
   };
 
+})
+.directive('gridThumbnail', function() {
+  return {
+    templateUrl: 'app/components/gridThumbnail/gridThumbnail.html'
+  }
 });
