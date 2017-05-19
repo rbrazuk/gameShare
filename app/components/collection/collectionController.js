@@ -1,14 +1,10 @@
-angular.module("gameShareApp").controller("collectionController", function($scope, $routeParams, $http, apiService) {
+angular.module("gameShareApp").controller("collectionController", function($scope, $routeParams, $http, collectionService) {
   $scope.username = $routeParams.username;
   $scope.collection = [];
-
+  $scope.counts = {};
   $scope.collectionLoaded = false;
-
   $scope.filter = {};
   $scope.selectedFilter = "owned";
-
-  $scope.counts = {};
-
   $scope.listMode = false;
 
   $scope.showGridView = function() {
@@ -19,53 +15,18 @@ angular.module("gameShareApp").controller("collectionController", function($scop
     $scope.listMode = true;
   }
 
-
   $scope.getCollection = function(username) {
-    apiService.getFlatCollection(username)
+    collectionService.getFlatCollection(username)
       .then(function(posts) {
         $scope.collectionLoaded = true;
         $scope.collection = posts;
-        $scope.getCounts(posts);
-
+        $scope.counts = collectionService.getCounts(posts);
       });
-  }
-
-  $scope.getExampleCollection = function() {
-    $http.get("assets/js/exampleCollection.json")
-      .then(function(result) {
-        $scope.collection = result.data;
-      });
-  }
-
-  $scope.getCounts = function(collection) {
-    var wishlistCount = 0;
-    var wantToPlayCount = 0;
-    var ownedCount = 0;
-
-    for (var i = 0; i < collection.length; i++) {
-
-      if (collection[i].owned) {
-        ownedCount++;
-      }
-      if (collection[i].wishList) {
-        wishlistCount++;
-      }
-      if (collection[i].wantToPlay) {
-        wantToPlayCount++;
-      }
-    }
-
-
-    $scope.counts.wishList = wishlistCount;
-    $scope.counts.wantToPlay = wantToPlayCount;
-    $scope.counts.owned = ownedCount;
-    console.log($scope.counts);
   }
 
   $scope.init = function() {
     $scope.username = $routeParams.username;
     $scope.getCollection($scope.username);
-    //$scope.getExampleCollection();
   }
 
   $scope.init();
