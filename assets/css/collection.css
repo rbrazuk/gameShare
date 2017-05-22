@@ -94,3 +94,20 @@ th a {
   color: #000;
   cursor: pointer;
 }
+
+.game-description {
+  height: 150px;
+  overflow: auto;
+}
+
+.tag {
+  padding: 5px;
+  display: inline-block;
+  background-color: #00b248;
+  border-radius: 4px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  color: #FFF;
+
+
+}
