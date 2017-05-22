@@ -1,4 +1,4 @@
-angular.module("gameShareApp").controller("collectionController", function($scope, $routeParams, $http, collectionService) {
+angular.module("gameShareApp").controller("collectionController", function($scope, $routeParams, $http, $sce, collectionService) {
   $scope.username = $routeParams.username;
   $scope.collection = [];
   $scope.counts = {};
@@ -7,6 +7,8 @@ angular.module("gameShareApp").controller("collectionController", function($scop
   $scope.orderBy = "name";
   $scope.selectedFilter = "owned";
   $scope.listMode = false;
+  $scope.showModal = false;
+  $scope.selectedGame = {};
 
   $scope.showGridView = function() {
     $scope.listMode = false;
@@ -23,6 +25,10 @@ angular.module("gameShareApp").controller("collectionController", function($scop
         $scope.collection = posts;
         $scope.counts = collectionService.getCounts(posts);
       });
+  }
+
+  $scope.showAsHtml = function(string) {
+    return $sce.trustAsHtml(string.replace(/&#10;/g, "<br/>"));
   }
 
   $scope.init = function() {
@@ -57,12 +63,18 @@ angular.module("gameShareApp").controller("collectionController", function($scop
 
   $scope.showPopup = function(id) {
     var details = {};
+    $scope.showModal = true;
     collectionService.getGameDetails(id)
     .then(function(result) {
-      console.log(result);
+      $scope.selectedGame = result;
+      //$scope.selectedGame.description = $scope.sanitizeDescription($scope.selectedGame.description);
     });
-    console.log("ID = " + id);
-    
+
+
+  }
+
+  $scope.setSelectedGame = function(game) {
+    $scope.setSelectedGame = game;
   }
 
   $scope.changeOrderBy = function(newValue) {

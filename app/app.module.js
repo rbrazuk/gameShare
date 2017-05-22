@@ -1,1 +1,1 @@
-angular.module('gameShareApp', ["ngRoute", "ngAnimate"]);
+angular.module('gameShareApp', ["ngRoute", "ngAnimate","ngSanitize"]);
