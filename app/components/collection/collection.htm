@@ -40,6 +40,6 @@
     </thead>
   </table>
   <div ng-show="!listMode" ng-cloak>
-      <grid-thumbnail ng-repeat="game in collection | filter: filter" ng-cloak ng-click="showPopup(game.name)"></grid-thumbnail>
+      <grid-thumbnail ng-repeat="game in collection | filter: filter" ng-cloak ng-click="showPopup(game.gameId)"></grid-thumbnail>
   </div>
 </div>

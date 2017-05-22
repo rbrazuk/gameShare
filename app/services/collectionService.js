@@ -1,6 +1,7 @@
 angular.module("gameShareApp").service("collectionService", function($http, $q) {
 
   const JSON_COLLECTION_ENDPOINT = "https://bgg-json.azurewebsites.net/collection/";
+  const JSON_GAME_DETAILS_ENDPOINT = "https://bgg-json.azurewebsites.net/thing/";
 
   var collection = undefined;
 
@@ -23,6 +24,24 @@ angular.module("gameShareApp").service("collectionService", function($http, $q) 
     console.log("loaded from cache");
     return $q.when(collection);
   };
+
+  this.getGameDetails = function(id) {
+
+    var deferred = $q.defer();
+    var details = {};
+
+    $http.get(JSON_GAME_DETAILS_ENDPOINT + id)
+      .then(function(result) {
+        details = result.data;
+        deferred.resolve(details);
+      }, function(error) {
+        details = error;
+        deferred.reject(error);
+      });
+
+      details = deferred.promise;
+      return $q.when(details);
+  }
 
   this.getCounts = function(collection) {
     var wishlistCount = 0;

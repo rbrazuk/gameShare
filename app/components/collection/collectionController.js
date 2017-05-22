@@ -55,8 +55,14 @@ angular.module("gameShareApp").controller("collectionController", function($scop
     }
   };
 
-  $scope.showPopup = function(name) {
-    alert(name);
+  $scope.showPopup = function(id) {
+    var details = {};
+    collectionService.getGameDetails(id)
+    .then(function(result) {
+      console.log(result);
+    });
+    console.log("ID = " + id);
+    
   }
 
   $scope.changeOrderBy = function(newValue) {
