@@ -31,3 +31,13 @@ html {
 #content {
   padding-top: 60px;
 }
+
+.vertical-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  text-align: center;
+}
