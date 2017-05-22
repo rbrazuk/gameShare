@@ -55,6 +55,10 @@ angular.module("gameShareApp").controller("collectionController", function($scop
     }
   };
 
+  $scope.showPopup = function(name) {
+    alert(name);
+  }
+
   $scope.changeOrderBy = function(newValue) {
       $scope.orderBy = $scope.orderBy === newValue ? "-" + newValue : newValue;
   }
