@@ -27,6 +27,10 @@ html {
   color: #000;
 }
 
+.header a:hover {
+  color: #00b248;
+}
+
 .inline-list {
   list-style-type: none;
 }

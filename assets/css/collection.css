@@ -45,7 +45,7 @@ th a {
 }
 
 .overlay {
-  position:absolute;
+  position:fixed;
   z-index:9999;
   top:0;
   left:0;
@@ -57,7 +57,7 @@ th a {
 
 .modal-content {
   z-index:10000;
-  position: absolute;
+  position: fixed;
   width: 50%;
   top: 50%;
   left: 50%;
@@ -100,6 +100,13 @@ th a {
   color: #FFF;
 }
 
+.btn-active {
+  background-color: #00b248;
+}
+
+.btn-inactive {
+  background-color: #FFF;
+}
 #collection-header {
   height: 50px;
   background-color: #FFF;

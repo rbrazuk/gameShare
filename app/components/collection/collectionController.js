@@ -67,11 +67,8 @@ angular.module("gameShareApp").controller("collectionController", function($scop
     collectionService.getGameDetails(id)
     .then(function(result) {
       $scope.selectedGame = result;
-      //$scope.selectedGame.description = $scope.sanitizeDescription($scope.selectedGame.description);
-    });
-
-
-  }
+      });
+    }
 
   $scope.setSelectedGame = function(game) {
     $scope.setSelectedGame = game;

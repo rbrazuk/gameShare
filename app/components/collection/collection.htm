@@ -1,10 +1,10 @@
 <div class="row vertical-center" id="collection-header">
   <div class="col-md-6">
-    <h3>Collection for {{username}}</h3>
+    <h4>Collection for <a ng-href="https://boardgamegeek.com/user/{{username}}" target="_blank">{{username}}</a></h4>
   </div>
   <div class="col-md-3">
     <div class="btn-group" role="group">
-      <button type="button" class="btn btn-default" ng-click="changeFilter('owned')">Owned - {{counts.owned}}</button>
+      <button type="button" class="btn btn-default" ng-click="changeFilter('owned')" ng-class="filter === 'owned' ? btn-active : btn-inactive">Owned - {{counts.owned}}</button>
       <button type="button" class="btn btn-default" ng-click="changeFilter('wishList')">Wishlist - {{counts.wishList}}</button>
       <button type="button" class="btn btn-default" ng-click="changeFilter('wantToPlay')">Want To Play - {{counts.wantToPlay}}</button>
     </div>
@@ -22,17 +22,14 @@
   <hr>
   <p><strong>Description</strong></p>
   <div class="game-description">
-    <p ng-bind-html="showAsHtml(selectedGame.description)">
+    <p ng-bind-html="showAsHtml(selectedGame.description)"></p>
   </div>
-  <p><strong>Mechanics)</strong></p>
+  <p><strong>Mechanics</strong></p>
   <p><span class="tag" ng-repeat="mechanic in selectedGame.mechanics">{{mechanic}} </span></p>
   <p><strong>Designer(s)</strong></p>
   <p><span class="tag" ng-repeat="designer in selectedGame.designers">{{designer}} </span></p>
   <p><strong>Artist(s)</strong></p>
   <p><span class="tag" ng-repeat="artist in selectedGame.artists">{{artist}} </span></p>
-
-
-  </p>
 </div>
 
 <div ng-if="!collectionLoaded">
