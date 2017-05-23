@@ -1,4 +1,6 @@
 angular.module("gameShareApp").controller("collectionController", function($scope, $routeParams, $http, $sce, collectionService) {
+
+  var loadingGifUrl = "assets/images/loading.gif";
   $scope.username = $routeParams.username;
   $scope.collection = [];
   $scope.counts = {};
@@ -10,7 +12,10 @@ angular.module("gameShareApp").controller("collectionController", function($scop
   $scope.listMode = false;
   $scope.showModal = false;
   $scope.selectedGame = {};
-  $scope.selectedGameImage = "http://placehold.it/350x150";
+
+  $scope.selectedGameImage = loadingGifUrl;
+
+
 
   $scope.showGridView = function() {
     $scope.listMode = false;
@@ -78,7 +83,7 @@ angular.module("gameShareApp").controller("collectionController", function($scop
     $scope.showModal = false;
     $scope.selectedGame = {};
     $scope.detailsLoaded = false;
-    $scope.selectedGameImage = "http://placehold.it/300x300";
+    $scope.selectedGameImage = loadingGifUrl;
   }
 
   $scope.setSelectedGame = function(game) {
