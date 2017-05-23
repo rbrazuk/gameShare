@@ -107,6 +107,18 @@ th a {
 .btn-inactive {
   background-color: #FFF;
 }
+
+.details-container {
+  display: inline-block; 
+}
+
+.details-container img {
+  height: 300px;
+}
+
+.details-description-container {
+  display: inline-block;
+}
 #collection-header {
   height: 50px;
   background-color: #FFF;

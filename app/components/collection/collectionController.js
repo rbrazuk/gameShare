@@ -3,6 +3,7 @@ angular.module("gameShareApp").controller("collectionController", function($scop
   $scope.collection = [];
   $scope.counts = {};
   $scope.collectionLoaded = false;
+  $scope.detailsLoaded = false;
   $scope.filter = {};
   $scope.orderBy = "name";
   $scope.selectedFilter = "owned";
@@ -67,8 +68,16 @@ angular.module("gameShareApp").controller("collectionController", function($scop
     collectionService.getGameDetails(id)
     .then(function(result) {
       $scope.selectedGame = result;
+      $scope.detailsLoaded = true;
       });
-    }
+  }
+
+  $scope.dismissPopup = function() {
+    $scope.showModal = false;
+    $scope.selectedGame = {};
+    $scope.detailsLoaded = false;
+  }
+
 
   $scope.setSelectedGame = function(game) {
     $scope.setSelectedGame = game;
