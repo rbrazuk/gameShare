@@ -17,18 +17,32 @@
 </div>
 
 <div class="overlay" ng-cloak ng-show="showModal" ng-click="dismissPopup()"></div>
-<div class="modal-content" ng-show="showModal && detailsLoaded">
-  <h2>{{selectedGame.name}}</h2>
-  <hr>
-  <div>
-    <div class="details-container">
-      <img ng-src="{{selectedGame.image}}" alt="">
+<div class="container modal-content" ng-show="showModal && detailsLoaded">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>{{selectedGame.name}}</h2>
+      <hr>
     </div>
-    <div class="details-container">
-      <div class="game-description">
-        <p ng-bind-html="showAsHtml(selectedGame.description)"></p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="details-container">
+        <img ng-src="{{selectedGame.image}}" alt="">
       </div>
     </div>
+    <div class="col-md-6">
+      <div class="details-container">
+        <div class="game-description">
+          <p ng-bind-html="showAsHtml(selectedGame.description)"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+
+
   </div>
 
 

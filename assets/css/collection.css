@@ -86,8 +86,9 @@ th a {
 }
 
 .game-description {
-  height: 150px;
+  height: 300px;
   overflow: auto;
+
 }
 
 .tag {
@@ -109,7 +110,8 @@ th a {
 }
 
 .details-container {
-  display: inline-block; 
+  display: inline-block;
+  margin: auto;
 }
 
 .details-container img {
@@ -119,6 +121,7 @@ th a {
 .details-description-container {
   display: inline-block;
 }
+
 #collection-header {
   height: 50px;
   background-color: #FFF;
