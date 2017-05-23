@@ -4,13 +4,19 @@ html {
 
 .header {
   color: #000;
-  background-color: #00e676;
+  /*background-color: #00e676;*/
+  background-color: rgba(255,255,255,0.85);
   height: 60px;
   font-size: 24px;
   position: fixed;
   width: 100%;
   z-index: 1;
   font-family: 'Karla', sans-serif;
+  border-bottom: 1px solid #808080;
+}
+
+.header img {
+    height: 50px;
 }
 
 .right {
@@ -31,6 +37,8 @@ html {
 
 #content {
   padding-top: 60px;
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
 .vertical-center {
