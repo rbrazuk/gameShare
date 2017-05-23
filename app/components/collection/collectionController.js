@@ -10,6 +10,7 @@ angular.module("gameShareApp").controller("collectionController", function($scop
   $scope.listMode = false;
   $scope.showModal = false;
   $scope.selectedGame = {};
+  $scope.selectedGameImage = "http://placehold.it/350x150";
 
   $scope.showGridView = function() {
     $scope.listMode = false;
@@ -69,6 +70,7 @@ angular.module("gameShareApp").controller("collectionController", function($scop
     .then(function(result) {
       $scope.selectedGame = result;
       $scope.detailsLoaded = true;
+      $scope.selectedGameImage = $scope.selectedGame.image;
       });
   }
 
@@ -76,8 +78,8 @@ angular.module("gameShareApp").controller("collectionController", function($scop
     $scope.showModal = false;
     $scope.selectedGame = {};
     $scope.detailsLoaded = false;
+    $scope.selectedGameImage = "http://placehold.it/300x300";
   }
-
 
   $scope.setSelectedGame = function(game) {
     $scope.setSelectedGame = game;
