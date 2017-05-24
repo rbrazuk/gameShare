@@ -12,7 +12,7 @@
       <span class="glyphicon glyphicon-th-list display-toggle" ng-class="listMode ? 'display-active' : 'display-inactive'" ng-click="showListView()">yo</span>
       <span class="glyphicon glyphicon-th-large display-toggle" ng-class="!listMode ? 'display-active' : 'display-inactive'" ng-click="showGridView()">yo</span>
     </div>
-
+  </div>
   <div class="row">
 
   </div>
@@ -87,10 +87,8 @@
   </div>
 
   <div class="row" ng-show="!listMode" ng-cloak>
-    <div class="col-xs-6" ng-repeat="game in collection | filter: filter">
+    <div class="col-xs-6 col-sm-4 col-md-2" ng-repeat="game in collection | filter: filter">
       <grid-thumbnail ng-cloak ng-click="showPopup(game.gameId)"></grid-thumbnail>
     </div>
 
   </div>
-
-</div>
