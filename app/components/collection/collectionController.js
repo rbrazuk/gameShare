@@ -19,6 +19,7 @@ angular.module("gameShareApp").controller("collectionController", function($scop
 
   $scope.showGridView = function() {
     $scope.listMode = false;
+    $scope.changeOrderBy('name');
   }
 
   $scope.showListView = function() {
