@@ -45,6 +45,29 @@ angular.module("gameShareApp").controller("collectionController", function($scop
 
   $scope.init();
 
+  $scope.changeFilter = function(newValue) {
+    switch (newValue) {
+      case "all":
+        $scope.filter = {};
+        break;
+      case "owned":
+        $scope.filter = {};
+        $scope.filter.owned = true;
+        break;
+      case "wishList":
+        $scope.filter = {};
+        $scope.filter.wishList = true;
+        break;
+      case "wantToPlay":
+        $scope.filter = {};
+        $scope.filter.wantToPlay = true;
+        break;
+      default:
+        $scope.filter = {};
+        break;
+    }
+  };
+
   $scope.showPopup = function(id) {
     var details = {};
     $scope.showModal = true;

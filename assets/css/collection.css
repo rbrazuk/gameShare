@@ -70,11 +70,36 @@ th a {
   padding: 10px;
 }
 
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+    height: 90%;
+    overflow: auto;
+    padding: 5px;
+  }
+
+  .modal-content img {
+    display: none;
+  }
+
+  .game-description {
+    overflow: auto;
+    height: auto;
+    width: 100%;
+  }
+
+  table {
+    font-size: .9em;
+  }
+
+}
+
 .display-toggle {
   font-size: 2em;
   cursor: pointer;
-  float: right;
+  /*float: right;*/
   margin-right: 5px;
+  display: inline-block;
 }
 
 .display-active {
