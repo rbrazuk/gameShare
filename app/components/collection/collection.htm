@@ -3,11 +3,16 @@
     <h4>Collection for <a ng-href="https://boardgamegeek.com/user/{{username}}" target="_blank">{{username}}</a></h4>
   </div>
   <div class="col-md-3">
-    <div class="btn-group" role="group">
+    <!-- <div class="btn-group" role="group">
       <button type="button" class="btn btn-default" ng-click="changeFilter('owned')" ng-class="filter === 'owned' ? btn-active : btn-inactive">Owned - {{counts.owned}}</button>
       <button type="button" class="btn btn-default" ng-click="changeFilter('wishList')">Wishlist - {{counts.wishList}}</button>
       <button type="button" class="btn btn-default" ng-click="changeFilter('wantToPlay')">Want To Play - {{counts.wantToPlay}}</button>
-    </div>
+    </div> -->
+    <select ng-model="selectedFilter" >
+      <option value="owned">Owned - {{counts.owned}}</option>
+      <option value="wishList">Wishlist - {{counts.wishList}}</option>
+      <option value="wantToPlay">Want To Play - {{counts.wantToPlay}}</option>
+    </select>
   </div>
 
   <div class="col-md-3">
