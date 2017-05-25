@@ -107,9 +107,4 @@ angular.module("gameShareApp").controller("collectionController", function($scop
     }
   };
 
-})
-.directive('gridThumbnail', function() {
-  return {
-    templateUrl: 'app/components/gridThumbnail/gridThumbnail.html'
-  }
 });

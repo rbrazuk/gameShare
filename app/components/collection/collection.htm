@@ -88,7 +88,8 @@
 
   <div class="row" ng-show="!listMode" ng-cloak>
     <div class="col-xs-6 col-sm-4 col-md-2" ng-repeat="game in collection | filter: filter">
-      <grid-thumbnail ng-cloak ng-click="showPopup(game.gameId)"></grid-thumbnail>
+      <grid-thumbnail data="game" ng-cloak ng-click="showPopup(game.gameId)"></grid-thumbnail>
+
     </div>
 
   </div>
