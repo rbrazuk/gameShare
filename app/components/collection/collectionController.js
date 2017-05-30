@@ -12,6 +12,7 @@ angular.module("gameShareApp").controller("collectionController", function($scop
   $scope.listMode = false;
   $scope.showModal = false;
   $scope.selectedGame = {};
+  //$scope.search = undefined;
 
   $scope.selectedGameImage = loadingGifUrl;
 

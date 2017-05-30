@@ -4,13 +4,14 @@
       <h4>Collection for <a ng-href="https://boardgamegeek.com/user/{{username}}" target="_blank">{{username}}</a></h4>
     </div>
     <div class="col-xs-6">
+      <input type="text" placeholder="search" ng-model="searchFilter">
       <select ng-model="selectedFilter" >
         <option value="owned">Owned - {{counts.owned}}</option>
         <option value="wishList">Wishlist - {{counts.wishList}}</option>
         <option value="wantToPlay">Want To Play - {{counts.wantToPlay}}</option>
       </select>
-      <span class="glyphicon glyphicon-th-list display-toggle" ng-class="listMode ? 'display-active' : 'display-inactive'" ng-click="showListView()">yo</span>
-      <span class="glyphicon glyphicon-th-large display-toggle" ng-class="!listMode ? 'display-active' : 'display-inactive'" ng-click="showGridView()">yo</span>
+      <span class="glyphicon glyphicon-th-list display-toggle" ng-class="listMode ? 'display-active' : 'display-inactive'" ng-click="showListView()"></span>
+      <span class="glyphicon glyphicon-th-large display-toggle" ng-class="!listMode ? 'display-active' : 'display-inactive'" ng-click="showGridView()"></span>
     </div>
   </div>
   <div class="row">
@@ -68,7 +69,7 @@
             <th><a ng-click="changeOrderBy('playingTime')">Playing Time <span></span></a></th>
             <th><a ng-click="changeOrderBy('yearPublished')">Year <span></span></a></th>
           </tr>
-          <tr ng-repeat="game in collection | filter: filter | orderBy: orderBy">
+          <tr ng-repeat="game in collection | filter: filter | orderBy: orderBy | filter: searchFilter">
             <td><a ng-href="https://boardgamegeek.com/boardgame/{{game.gameId}}/" target="_blank">{{game.name}}</a></td>
             <td>{{game.minPlayers}}</td>
             <td>{{game.maxPlayers}}</td>
@@ -81,7 +82,7 @@
   </div>
 
   <div class="row" ng-show="!listMode" ng-cloak>
-    <div class="col-xs-6 col-sm-4 col-md-2" ng-repeat="game in collection | filter: filter">
+    <div class="col-xs-6 col-sm-4 col-md-2" ng-repeat="game in collection | filter: filter | filter: searchFilter">
       <grid-thumbnail data="game" ng-cloak ng-click="showPopup(game.gameId)"></grid-thumbnail>
     </div>
   </div>
