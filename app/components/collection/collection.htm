@@ -3,9 +3,9 @@
     <div class="col-xs-6">
       <h4>Collection for <a ng-href="https://boardgamegeek.com/user/{{username}}" target="_blank">{{username}}</a></h4>
     </div>
-    <div class="col-xs-6">
-      <input type="text" placeholder="search" ng-model="searchFilter">
-      <select ng-model="selectedFilter" >
+    <div class="col-xs-6 right vertical-center">
+      <input type="text" class="header-input" placeholder="search" ng-model="searchFilter">
+      <select ng-model="selectedFilter" class="header-input">
         <option value="owned">Owned - {{counts.owned}}</option>
         <option value="wishList">Wishlist - {{counts.wishList}}</option>
         <option value="wantToPlay">Want To Play - {{counts.wantToPlay}}</option>
